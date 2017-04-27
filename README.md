@@ -27,15 +27,17 @@ Depending on the extension, use one of the following commands:
 
 Use this command to extract a .tar.gz file:
 
-    S tar -xzvf file_name.tar.gz
+    $ tar -xzvf file_name.tar.gz
 
 Or use this command to extract a .tar.bz2 file:
 
-    S tar -xjvf file_name.tar.bz2
+    $ tar -xjvf file_name.tar.bz2
 
 You’ll end up with a directory with the same name as your source code package.
 
 Use the cd command to enter it.
+
+    cd file_name
 
 #Read Install Documentation
 
@@ -46,20 +48,33 @@ This whole information is broadly divided into two files : ‘Readme’ and ‘I
 While ‘Install’ covers all the information required for compilation and installation, all the other information is covered in the ‘Readme’ file. 
 Please note that the name of file and it case may vary.
 
-#Resolving Dependencies
+You can use the less command on the command line to read them:
+
+    $ less INSTALL
+or
+    $ less README
+
+(press ‘q’ on your keyboard to quit) or just open them in your favorite text editor. 
+The documentation may point you to other software that you need to install before you can install this package (“dependencies”)
+
+#Configuration (Building)
+
+Once the above step is over then we can assume that we have sufficient theoretical knowledge about this software and now we can move forward and configure the environment for compiling and installing the software on our system. 
+Most of the packages come along with a configuration script that can be used for configuring the environment. 
+The file name for configuration file is mostly ‘configure’. 
 
 Once you’re in the extracted directory, run the following command:
 (Note that some applications may not use ./configure. Check the “README” or “INSTALL” file in the application’s extracted folder for more specific instructions.)
 
-    ./configure
+    $ ./configure
 
-(The ./configure command checks your system for the required software needed to build the program. The ./ part tells the Bash shell to look inside the current directory for the “configure” file and run it. If you omitted the ./, Bash would look for a program named “configure” in system directories like /bin and /usr/bin.)
+(The ./configure command check and/or creates the build environment for the required software needed to build the program on your system. The ./ part tells the Bash shell to look inside the current directory for the “configure” file and run it. If you omitted the ./, Bash would look for a program named “configure” in system directories like /bin and /usr/bin.)
 
 Once ./configure completes successfully, you’re ready to compile and install the package.
 
-#Compiling and Installing
+#Compiling
 
-Use the following command to compile the program:
+In the same directory use the following command to compile the program:
 
     $ make
 
@@ -67,16 +82,22 @@ This process may take some time, depending on your system and the size of the pr
 If ./configure completed successfully, make shouldn’t have any problems. 
 You’ll see the lines of text scroll by as the program compiles.
 After this command finishes, the program is successfully compiled (but it’s not installed). 
+
+#Installing
+
 Use the following command to install it to your system:
 
-    sudo make install
+    $ sudo make install
 
 It’ll probably be stored under /usr/local on your system. 
 /usr/local/bin is part of your system’s path.
 Don’t delete the program’s directory if you want to install it later.
+
+#Uninstall
+
 You can run the following command from the directory to uninstall the program from your system:
 
-    sudo make uninstall
+    $ sudo make uninstall
 
 Programs you install this way won’t be automatically updated by Ubuntu’s Update Manager, even if they contain security vulnerabilities. Unless you require a specific application or version that isn’t in Ubuntu’s software repositories, it’s a good idea to stick with your distribution’s official packages.
 
