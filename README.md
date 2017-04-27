@@ -51,7 +51,7 @@ Please note that the name of file and it case may vary.
 You can use the less command on the command line to read them:
 
     $ less INSTALL
-or
+        or
     $ less README
 
 (press ‘q’ on your keyboard to quit) or just open them in your favorite text editor. 
