@@ -1,6 +1,6 @@
 # compile-from-source-code
-Build a program from source and install it on your system.
 
+Build a program from source and install it on your system.
 You don’t have to be a programmer to compile a program from source code and install it on your system
 You only have to know the basic few commands, you can build from source code.
 
@@ -13,22 +13,38 @@ The build-essential package  installs the basic software you’ll need to compil
 #Getting a Source Package
 
 Now you’ll need your desired application’s source code. 
-These packages are usually in compressed files with the .tar.gz or .tar.bz2 file extensions.
+The source code for software on Linux comes in the form of compressed tar files, which typically have either .tar.gz or .tar.bz2 extensions. A .tar.gz or .tar.bz2 is like a .zip file.
 
-Locate the program’s .tar.gz or .tar.bz2 file and save it to your computer.
-A .tar.gz or .tar.bz2 is like a .zip file.
+Locate the program’s .tar.gz or .tar.bz2 file and save it to your computer or know the URL (download link) to the tarball.
+Once you have the URL, use ‘wget’ to fetch the tarball from command line.
 
-To use it, we’ll have to extract its contents.
+    $ wget <URL (download link) to the tarball>
+
+The above command will download the tarball into the current directory.
+
+Next unpack the tarball in order to get access to the source code and other files. 
+Depending on the extension, use one of the following commands:
+
 Use this command to extract a .tar.gz file:
 
-    S tar -xzvf file.tar.gz
+    S tar -xzvf file_name.tar.gz
 
 Or use this command to extract a .tar.bz2 file:
 
-    S tar -xjvf file.tar.bz2
+    S tar -xjvf file_name.tar.bz2
 
 You’ll end up with a directory with the same name as your source code package.
+
 Use the cd command to enter it.
+
+#Read Install Documentation
+
+Once the software source code is downloaded and extracted, the very first thing that one should do is to go through the documentation. This is a very important step that thoroughly would save you from most of the future problems. 
+The documentation provides information about the software, changes since last version, links to more documentation, information regrading the author of the software, steps for compilation and installation of software etc. 
+So we can see that lots of valuable information is present in the documentation.
+This whole information is broadly divided into two files : ‘Readme’ and ‘Install’. 
+While ‘Install’ covers all the information required for compilation and installation, all the other information is covered in the ‘Readme’ file. 
+Please note that the name of file and it case may vary.
 
 #Resolving Dependencies
 
